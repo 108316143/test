@@ -1,0 +1,69 @@
+[
+  {
+    "selectedLOINC": {
+      "code": "55424-6",
+      "display": "Calories burned - kilocalories"
+    }
+  },
+  {
+    "selectedLOINC": {
+      "code": "55411-3",
+      "display": "Exercise duration - minutes"
+    }
+  },
+  {
+    "selectedLOINC": {
+      "code": "55425-3",
+      "display": "Mean heart rate - beats per minute"
+    }
+  },
+  {
+    "selectedLOINC": {
+      "code": "2339-0",
+      "display": "Glucose [Mass/volume] in Blood"
+    }
+  },
+  {
+    "selectedLOINC": {
+      "code": "55284-4",
+      "display": "Blood pressure systolic and diastolic"
+    }
+  }
+]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOINC Display Selection</title>
+</head>
+<body>
+  <h2>Select LOINC Display:</h2>
+  <form id="loincForm">
+    <input type="radio" id="calories" name="loincDisplay" code="55424-6">
+    <label for="calories">Calories burned - kilocalories</label><br>
+    <input type="radio" id="exerciseDuration" name="loincDisplay" code="55411-3">
+    <label for="exerciseDuration">Exercise duration - minutes</label><br>
+    <input type="radio" id="heartRate" name="loincDisplay" code="55425-3">
+    <label for="heartRate">Mean heart rate - beats per minute</label><br>
+    <br>
+    <label for="retValue">Retrieved Value:</label>
+    <input type="text" id="retValue" name="retValue">
+    <br><br>
+    <input type="button" value="Submit" onclick="getSelectedValue()">
+  </form>
+
+  <script>
+    function getSelectedValue() {
+      var selectedDisplay = document.querySelector('input[name="loincDisplay"]:checked');
+      var retValueInput = document.getElementById("retValue");
+      if (selectedDisplay) {
+        retValueInput.value = selectedDisplay.getAttribute('code');
+      } else {
+        alert("Please select a LOINC Display option.");
+      }
+    }
+  </script>
+</body>
+</html>
